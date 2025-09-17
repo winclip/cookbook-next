@@ -9,14 +9,18 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@heroui/form": "^2.1.26",
+    "@heroui/input": "^2.4.27",
+    "@heroui/modal": "^2.2.23",
     "@heroui/navbar": "^2.2.24",
     "@heroui/react": "^2.8.4",
     "@heroui/system": "^2.4.22",
     "@heroui/theme": "^2.4.22",
-    "framer-motion": "^12.23.13",
+    "framer-motion": "^12.23.14",
     "next": "15.5.3",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-hook-form": "^7.62.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
