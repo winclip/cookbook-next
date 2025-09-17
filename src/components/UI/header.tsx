@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <Navbar>
+    <Navbar className="h-[80px]">
       <NavbarBrand>
         <Link href="" className="flex items-center gap-1">
           <Image
