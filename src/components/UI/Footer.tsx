@@ -1,8 +1,11 @@
+import { layoutConfig } from "@/config/layout.config";
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral-100 border-t border-neutral-200 h-[60px]">
+    <footer
+      className={`bg-neutral-100 border-t border-neutral-200  h-[${layoutConfig.footerHeight}px]`}
+    >
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center h-full">
         <div className="text-sm text-neutral-600">
           © {new Date().getFullYear()} Recepti. Sva prava zadržana.
