@@ -35,7 +35,10 @@ export default function RootLayout({
         <HeroUIProvider>
           <Header />
           <main
-            className={`flex flex-col h-[calc(100vh-${layoutConfig.headerHeight}px-${layoutConfig.footerHeight}px)] w-full justify-start items-center`}
+            className="flex flex-col w-full justify-start items-center"
+            style={{
+              height: `calc(100vh - ${layoutConfig.headerHeight}px - ${layoutConfig.footerHeight}px)`,
+            }}
           >
             {children}
           </main>

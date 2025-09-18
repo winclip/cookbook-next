@@ -7,7 +7,10 @@ import AuthButtons from "./AuthButtons";
 
 export default function Header() {
   return (
-    <Navbar className={`h-[${layoutConfig.headerHeight}px]`}>
+    <Navbar
+      className="border-b border-neutral-200"
+      style={{ height: `${layoutConfig.headerHeight}px` }}
+    >
       <NavbarBrand>
         <Link href="" className="flex items-center gap-1">
           <Image
