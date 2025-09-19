@@ -2,6 +2,8 @@
 
 import { useForm } from "react-hook-form";
 import { Button, Input, Form } from "@heroui/react";
+import prisma from "@/utils/prisma";
+import { registerUser } from "@/actions/register";
 
 interface IForm {
   email: string;
@@ -24,7 +26,9 @@ export default function RegistrationForm({ onClose }: IProps) {
   const password = watch("password");
 
   const onSubmit = async (data: IForm) => {
-    console.log(data);
+    const register = await registerUser(data);
+
+    console.log(register);
 
     onClose();
   };

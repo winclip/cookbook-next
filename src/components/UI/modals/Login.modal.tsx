@@ -1,6 +1,6 @@
 "use client";
 
-import LoginForm from "@/app/forms/Login.form";
+import LoginForm from "@/forms/Login.form";
 import CustomModal from "@/components/common/Modal";
 
 interface IProps {

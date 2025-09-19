@@ -1,6 +1,6 @@
 "use client";
 
-import RegistrationForm from "@/app/forms/Registration.form";
+import RegistrationForm from "@/forms/Registration.form";
 import CustomModal from "@/components/common/Modal";
 
 interface IProps {
