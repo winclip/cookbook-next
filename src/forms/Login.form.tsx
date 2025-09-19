@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { Button, Form, Input } from "@heroui/react";
+import { signInWithCredentials } from "@/actions/sign-in";
 
 interface IForm {
   email: string;
@@ -21,6 +22,8 @@ export default function LoginForm({ onClose }: IProps) {
 
   const onSubmit = async (data: IForm) => {
     console.log(data);
+    const result = await signInWithCredentials(data.email, data.password);
+    console.log(result);
 
     onClose();
   };

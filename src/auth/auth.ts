@@ -18,6 +18,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       authorize: async (credentials) => {
         try {
+          console.log(credentials);
+
           if (!credentials?.email || !credentials?.password) {
             throw new Error("Email and password are required");
           }
@@ -25,7 +27,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           const { email, password } = await signInSchema.parseAsync(
             credentials
           );
-
           const user = await getUserFromDb(email);
 
           if (!user || !user.password) {
