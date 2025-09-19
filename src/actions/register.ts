@@ -1,8 +1,8 @@
 "use server";
 
 import { IFormData } from "@/types/form-data";
+import { saltAndHashPassword } from "@/utils/password";
 import prisma from "@/utils/prisma";
-import bcrypt from "bcrypt";
 
 export async function registerUser(data: IFormData) {
   try {
@@ -19,7 +19,7 @@ export async function registerUser(data: IFormData) {
       return { error: "User already exists" };
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await saltAndHashPassword(password);
 
     const user = await prisma.user.create({
       data: {

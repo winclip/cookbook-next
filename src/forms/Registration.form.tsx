@@ -2,7 +2,6 @@
 
 import { useForm } from "react-hook-form";
 import { Button, Input, Form } from "@heroui/react";
-import prisma from "@/utils/prisma";
 import { registerUser } from "@/actions/register";
 
 interface IForm {
