@@ -25,6 +25,7 @@ export default function LoginForm({ onClose }: IProps) {
     const result = await signInWithCredentials(data.email, data.password);
     console.log(result);
 
+    window.location.reload();
     onClose();
   };
 

@@ -2,20 +2,26 @@
 
 import { Button, NavbarItem } from "@heroui/react";
 import { useState } from "react";
-import { useSession } from "next-auth/react";
 import RegistrationModal from "../modals/Registration.modal";
 import LoginModal from "../modals/Login.modal";
 import { signOutFunc } from "@/actions/sign-out";
+import { useAuthStore } from "@/store/auth.store";
 
 export default function AuthButtons() {
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const { isAuth, session, status, setAuthState } = useAuthStore();
 
-  const { data: session, status } = useSession();
-  const isAuth = !!session;
+  console.log(status);
+  console.log(session);
 
   const handleSignOut = async () => {
-    await signOutFunc();
+    try {
+      await signOutFunc();
+    } catch (error) {
+      console.log(error);
+    }
+    setAuthState("unauthenticated", null);
   };
 
   if (status === "loading") {
@@ -53,7 +59,7 @@ export default function AuthButtons() {
             </Button>
           </NavbarItem>
           <NavbarItem>
-            Zdravo {session.user?.name || session.user?.email}!
+            Zdravo {session?.user?.name || session?.user?.email}!
           </NavbarItem>
         </>
       )}

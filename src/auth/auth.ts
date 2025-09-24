@@ -27,17 +27,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           const { email, password } = await signInSchema.parseAsync(
             credentials
           );
+          console.log(email);
+
           const user = await getUserFromDb(email);
 
           if (!user || !user.password) {
             throw new Error("Invalid credentials");
           }
+          console.log(user);
 
           const isPasswordValid = await bcrypt.compare(password, user.password);
 
           if (!isPasswordValid) {
             throw new Error("Invalid credentials");
           }
+          console.log("exit");
 
           return { id: user.id, email: user.email };
         } catch (error) {

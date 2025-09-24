@@ -8,6 +8,7 @@ import Footer from "@/components/UI/layout/Footer";
 import { layoutConfig } from "@/config/layout.config";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth/auth";
+import AppLoader from "@/hoc/app-loader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,16 +38,18 @@ export default async function RootLayout({
       >
         <SessionProvider session={session}>
           <HeroUIProvider>
-            <Header />
-            <main
-              className="flex flex-col w-full justify-start items-center"
-              style={{
-                height: `calc(100vh - ${layoutConfig.headerHeight}px - ${layoutConfig.footerHeight}px)`,
-              }}
-            >
-              {children}
-            </main>
-            <Footer />
+            <AppLoader>
+              <Header />
+              <main
+                className="flex flex-col w-full justify-start items-center"
+                style={{
+                  height: `calc(100vh - ${layoutConfig.headerHeight}px - ${layoutConfig.footerHeight}px)`,
+                }}
+              >
+                {children}
+              </main>
+              <Footer />
+            </AppLoader>
           </HeroUIProvider>
         </SessionProvider>
       </body>
